@@ -28,7 +28,7 @@
     ((:lang rust +lsp)       :after rustic      :require (dap-lldb dap-cpptools))
     ((:lang javascript +lsp)
      :after (js2-mode typescript-mode)
-     :require (dap-node dap-chrome dap-firefox ,@(if (featurep :system 'windows) '(dap-edge)))))
+     :require (dap-js dap-firefox)))
   "TODO")
 
 
@@ -53,7 +53,7 @@
     :defer t
     :init (add-to-list '+debugger--realgud-alist
                        '(realgud:trepan-ni :modes (javascript-mode js2-mode js3-mode)
-                                           :package realgud-trepan-ni)))
+                         :package realgud-trepan-ni)))
 
   ;; Realgud doesn't generate its autoloads properly so we do it ourselves
   (dolist (debugger +debugger--realgud-alist)
